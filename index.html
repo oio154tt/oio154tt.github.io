@@ -47,15 +47,26 @@
     <div class="space"></div>
 
     <script>
-      let animatedElements = ['.square'];
+      const animatedElements = ['.square'];
       let elementsToAnimate = [];
-      animatedElements.forEach(element=>{
-        elementsToAnimate.push(document.querySelectorAll(element));
-      });
 
-      elementsToAnimate.foreach(element=>{
-        element.data.animationLevel=0;
-      });
+
+      (function(){
+        elementsToAnimate = findElementsToAnimate(animatedElements);
+        markElementsToAnimate(elementsToAnimate);
+      })();
+      
+      function findElementsToAnimate(animatedElementsDef){
+        animatedElements.forEach(element=>{
+          elementsToAnimate.push(document.querySelectorAll(element));
+        });
+      }
+
+      function markElementsToAnimate(elements){
+        elementsToAnimate.foreach(element=>{
+          element.data.animationLevel=0;
+        });
+      }
       
     </script>
   </body>
