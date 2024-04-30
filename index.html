@@ -49,7 +49,14 @@
     <script>
       let animatedElements = ['.square'];
       let elementsToAnimate = [];
-      animatedElements.forEach(element=>{elementsToAnimate.push(document.querySelectorAll(element)});
+      animatedElements.forEach(element=>{
+        elementsToAnimate.push(document.querySelectorAll(element));
+      });
+
+      elementsToAnimate.foreach(element=>{
+        element.data.animationLevel=0;
+      });
+      
     </script>
   </body>
 </html>
