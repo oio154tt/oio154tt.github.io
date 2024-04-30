@@ -57,14 +57,16 @@
       })();
       
       function findElementsToAnimate(animatedElementsDef){
-        animatedElements.forEach(element=>{
-          elementsToAnimate.push(document.querySelectorAll(element));
+        let returnArray =  [];
+		animatedElements.forEach(element=>{
+          returnArray.push([ ...document.querySelectorAll(element) ]);
         });
+		return returnArray;
       }
 
       function markElementsToAnimate(elementsToAnimate){
         elementsToAnimate.forEach(element=>{
-          element.data.animationLevel=0;
+          element.data.animationLevel=0; 
         });
       }
       
